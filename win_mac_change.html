@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Path Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="errorMessage"></div>
+    <h1>Path Converter</h1>
+    <div class="folder-links">
+        <a class="folder-link" href="smb://サーバ接続パス1" target="_blank">1接続</a>
+        <a class="folder-link" href="smb://サーバ接続パス1" target="_blank">2接続</a>
+    </div>
+    <label for="tsudaPath">津田の制作フォルダパス</label>
+    <div class="custom-path">
+        <textarea id="tsudaPath">頻繁に使うパス</textarea>
+        <button onclick="copyCustomPath()">Copy</button>
+    </div>
+
+    <div class="container">
+        <div class="panel active">
+            <h2>Windows to Mac</h2>
+            <label for="windowsPath">Windows Path:</label>
+            <textarea id="windowsPath" style="white-space: pre-wrap;"></textarea>
+            <br><br>
+            <button onclick="convertToMac()">Convert</button>
+            <br>
+            <button id="copyWindowsButton" onclick="copyToClipboard('windowsPath')">Copy</button>
+        </div>
+        <div class="panel">
+            <h2>Mac to Windows</h2>
+            <label for="macPath">Mac Path:</label>
+            <textarea id="macPath" style="white-space: pre-wrap;"></textarea>
+            <br><br>
+            <button onclick="convertToWindows()">Convert</button>
+            <br>
+            <button id="copyMacButton" onclick="copyToClipboard('macPath')">Copy</button>
+        </div>
+        <div class="panel">
+            <h2>SMB Changer</h2>
+            <label for="smbPath">SMB Path:</label>
+            <textarea id="smbPath" style="white-space: pre-wrap;"></textarea>
+            <br><br>
+            <button onclick="convertToSMB()">Convert</button>
+            <br>
+            <button id="copySMBButton" onclick="copyToClipboard('smbPath')">Copy</button>
+        </div>
+    </div>
+    <br>
+    <button class="clear-button" onclick="clearInput('windowsPath', 'macPath')">Clear Paths</button>
+
+    <div class="container">
+        <div class="panel">
+            <h2>Conversion History</h2>
+            <ul id="historyContainer"></ul>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
